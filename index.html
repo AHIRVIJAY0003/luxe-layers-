@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chic - Premium Women's Fashion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'olive': {
+                            50: '#f7f8f3',
+                            100: '#eef0e7',
+                            200: '#dde2cf',
+                            300: '#c8d0b0',
+                            400: '#b0bc8e',
+                            500: '#9aaa72',
+                            600: '#7d8a5a',
+                            700: '#626c48',
+                            800: '#4f573c',
+                            900: '#434a34',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f7f8f3 0%, #eef0e7 50%, #dde2cf 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(125, 138, 90, 0.15);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #7d8a5a;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in-up.delay-1 { animation-delay: 0.2s; }
+        .fade-in-up.delay-2 { animation-delay: 0.4s; }
+        .fade-in-up.delay-3 { animation-delay: 0.6s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .star-rating {
+            color: #fbbf24;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f9faf7 100%);
+        }
+        
+        .offer-gradient {
+            background: linear-gradient(135deg, #7d8a5a 0%, #9aaa72 100%);
+        }
+    </style>
+</head>
+<body class="font-poppins bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50 border-b border-olive-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <h1 class="font-playfair text-3xl font-bold text-olive-800">Chic</h1>
+                    <p class="text-xs text-olive-600 -mt-1">Premium Fashion</p>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link text-olive-700 hover:text-olive-800 font-medium">Home</a>
+                    <a href="#collections" class="nav-link text-olive-700 hover:text-olive-800 font-medium">Collections</a>
+                    <a href="#about" class="nav-link text-olive-700 hover:text-olive-800 font-medium">About</a>
+                    <a href="#feedback" class="nav-link text-olive-700 hover:text-olive-800 font-medium">Reviews</a>
+                    <a href="#contact" class="nav-link text-olive-700 hover:text-olive-800 font-medium">Contact</a>
+                </nav>
+                
+                <!-- Desktop Icons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="text-olive-700 hover:text-olive-800 p-2 rounded-full hover:bg-olive-50 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    <button class="text-olive-700 hover:text-olive-800 p-2 rounded-full hover:bg-olive-50 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </button>
+                    <button class="text-olive-700 hover:text-olive-800 p-2 rounded-full hover:bg-olive-50 transition-colors relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-olive-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-olive-700 p-2" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-80 bg-white shadow-2xl z-50">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <div>
+                        <h2 class="font-playfair text-2xl font-bold text-olive-800">Chic</h2>
+                        <p class="text-sm text-olive-600">Premium Fashion</p>
+                    </div>
+                    <button onclick="toggleMobileMenu()" class="text-olive-600 p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="space-y-6">
+                    <a href="#" class="block text-olive-700 hover:text-olive-800 font-medium py-3 border-b border-olive-100">Home</a>
+                    <a href="#collections" class="block text-olive-700 hover:text-olive-800 font-medium py-3 border-b border-olive-100">Collections</a>
+                    <a href="#about" class="block text-olive-700 hover:text-olive-800 font-medium py-3 border-b border-olive-100">About</a>
+                    <a href="#feedback" class="block text-olive-700 hover:text-olive-800 font-medium py-3 border-b border-olive-100">Reviews</a>
+                    <a href="#contact" class="block text-olive-700 hover:text-olive-800 font-medium py-3 border-b border-olive-100">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-gradient relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-olive-900/10 to-transparent z-10"></div>
+        <div class="relative z-20 text-center max-w-6xl mx-auto px-4">
+            <div class="fade-in-up">
+                <h2 class="font-playfair text-6xl md:text-8xl font-bold text-olive-800 mb-6 leading-tight">
+                    Discover Your
+                    <span class="text-olive-600">Chic</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-olive-700 mb-8 max-w-3xl mx-auto fade-in-up delay-1">
+                    Where elegance meets comfort. Explore our curated collection of premium women's fashion designed for the modern, confident woman.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-2">
+                    <button class="bg-olive-700 text-white px-10 py-4 text-lg font-semibold rounded-full hover:bg-olive-800 transition-all duration-300 transform hover:scale-105">
+                        Shop Now
+                    </button>
+                    <button class="border-2 border-olive-700 text-olive-700 px-10 py-4 text-lg font-semibold rounded-full hover:bg-olive-700 hover:text-white transition-all duration-300">
+                        View Lookbook
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 right-20 w-40 h-40 border-2 border-olive-300 rounded-full opacity-30 animate-pulse"></div>
+        <div class="absolute bottom-20 left-20 w-28 h-28 border-2 border-olive-400 rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 right-10 w-6 h-6 bg-olive-400 rounded-full opacity-40"></div>
+        <div class="absolute top-1/3 left-10 w-4 h-4 bg-olive-500 rounded-full opacity-50"></div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h3 class="font-playfair text-5xl font-bold text-olive-800 mb-6">New Arrivals</h3>
+                <p class="text-olive-600 text-xl max-w-3xl mx-auto leading-relaxed">
+                    Step into the season with our latest collection of carefully selected pieces that blend timeless elegance with contemporary style
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="card-hover bg-gradient-to-br from-white to-olive-50 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-96 bg-gradient-to-br from-rose-100 via-pink-50 to-rose-200 flex items-center justify-center relative">
+                        <div class="text-8xl">👗</div>
+                        <div class="absolute top-4 right-4 bg-olive-600 text-white px-3 py-1 rounded-full text-sm font-semibold">New</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-playfair text-2xl font-semibold mb-3 text-olive-800">Evening Collection</h4>
+                        <p class="text-olive-600 mb-6 leading-relaxed">Sophisticated pieces for your special moments</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-3xl font-bold text-olive-800">From $299</span>
+                            <button class="bg-olive-700 text-white px-6 py-2 rounded-full hover:bg-olive-800 transition-colors">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-white to-olive-50 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-96 bg-gradient-to-br from-blue-100 via-sky-50 to-blue-200 flex items-center justify-center relative">
+                        <div class="text-8xl">👚</div>
+                        <div class="absolute top-4 right-4 bg-olive-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Trending</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-playfair text-2xl font-semibold mb-3 text-olive-800">Casual Chic</h4>
+                        <p class="text-olive-600 mb-6 leading-relaxed">Effortlessly stylish everyday essentials</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-3xl font-bold text-olive-800">From $89</span>
+                            <button class="bg-olive-700 text-white px-6 py-2 rounded-full hover:bg-olive-800 transition-colors">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-white to-olive-50 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-96 bg-gradient-to-br from-purple-100 via-violet-50 to-purple-200 flex items-center justify-center relative">
+                        <div class="text-8xl">👠</div>
+                        <div class="absolute top-4 right-4 bg-olive-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Limited</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-playfair text-2xl font-semibold mb-3 text-olive-800">Accessories</h4>
+                        <p class="text-olive-600 mb-6 leading-relaxed">Complete your look with premium accessories</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-3xl font-bold text-olive-800">From $49</span>
+                            <button class="bg-olive-700 text-white px-6 py-2 rounded-full hover:bg-olive-800 transition-colors">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="py-24 bg-gradient-to-br from-olive-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h3 class="font-playfair text-5xl font-bold text-olive-800 mb-6">Our Collections</h3>
+                <p class="text-olive-600 text-xl max-w-2xl mx-auto">Explore our carefully curated seasonal collections designed for every occasion</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-hover group cursor-pointer">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                        <div class="h-80 bg-gradient-to-br from-green-100 via-emerald-50 to-green-200 flex items-center justify-center relative overflow-hidden">
+                            <div class="text-7xl group-hover:scale-125 transition-transform duration-500">🌸</div>
+                            <div class="absolute inset-0 bg-olive-600/0 group-hover:bg-olive-600/10 transition-colors duration-300"></div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h4 class="font-playfair text-xl font-semibold text-olive-800 mb-2">Spring Bloom</h4>
+                            <p class="text-olive-600 text-sm">Fresh & Vibrant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover group cursor-pointer">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                        <div class="h-80 bg-gradient-to-br from-yellow-100 via-amber-50 to-orange-200 flex items-center justify-center relative overflow-hidden">
+                            <div class="text-7xl group-hover:scale-125 transition-transform duration-500">☀️</div>
+                            <div class="absolute inset-0 bg-olive-600/0 group-hover:bg-olive-600/10 transition-colors duration-300"></div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h4 class="font-playfair text-xl font-semibold text-olive-800 mb-2">Summer Breeze</h4>
+                            <p class="text-olive-600 text-sm">Light & Airy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover group cursor-pointer">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                        <div class="h-80 bg-gradient-to-br from-orange-100 via-red-50 to-red-200 flex items-center justify-center relative overflow-hidden">
+                            <div class="text-7xl group-hover:scale-125 transition-transform duration-500">🍂</div>
+                            <div class="absolute inset-0 bg-olive-600/0 group-hover:bg-olive-600/10 transition-colors duration-300"></div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h4 class="font-playfair text-xl font-semibold text-olive-800 mb-2">Autumn Elegance</h4>
+                            <p class="text-olive-600 text-sm">Warm & Cozy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover group cursor-pointer">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                        <div class="h-80 bg-gradient-to-br from-blue-100 via-indigo-50 to-purple-200 flex items-center justify-center relative overflow-hidden">
+                            <div class="text-7xl group-hover:scale-125 transition-transform duration-500">❄️</div>
+                            <div class="absolute inset-0 bg-olive-600/0 group-hover:bg-olive-600/10 transition-colors duration-300"></div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h4 class="font-playfair text-xl font-semibold text-olive-800 mb-2">Winter Luxe</h4>
+                            <p class="text-olive-600 text-sm">Rich & Sophisticated</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback/Reviews Section -->
+    <section id="feedback" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h3 class="font-playfair text-5xl font-bold text-olive-800 mb-6">What Our Customers Say</h3>
+                <p class="text-olive-600 text-xl max-w-2xl mx-auto">Real stories from women who love Chic</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg border border-olive-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-olive-200 to-olive-300 rounded-full flex items-center justify-center text-2xl">👩</div>
+                        <div class="ml-4">
+                            <h5 class="font-semibold text-olive-800">Sarah Johnson</h5>
+                            <div class="flex star-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-olive-600 leading-relaxed italic">"Absolutely love my purchases from Chic! The quality is exceptional and the styles are so elegant. I always get compliments when I wear their pieces."</p>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg border border-olive-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-olive-200 to-olive-300 rounded-full flex items-center justify-center text-2xl">👩‍💼</div>
+                        <div class="ml-4">
+                            <h5 class="font-semibold text-olive-800">Emily Chen</h5>
+                            <div class="flex star-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-olive-600 leading-relaxed italic">"Perfect for my professional wardrobe! The attention to detail and fit is amazing. Chic has become my go-to for sophisticated fashion."</p>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg border border-olive-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-olive-200 to-olive-300 rounded-full flex items-center justify-center text-2xl">👩‍🎨</div>
+                        <div class="ml-4">
+                            <h5 class="font-semibold text-olive-800">Maria Rodriguez</h5>
+                            <div class="flex star-rating">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-olive-600 leading-relaxed italic">"The customer service is outstanding and the clothes are even better in person. I'm a customer for life! The quality speaks for itself."</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <div class="inline-flex items-center space-x-8 bg-olive-50 px-8 py-6 rounded-2xl">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-olive-800">15K+</div>
+                        <div class="text-olive-600">Happy Customers</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-olive-800">4.9/5</div>
+                        <div class="text-olive-600">Average Rating</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-olive-800">98%</div>
+                        <div class="text-olive-600">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Collections -->
+    <section class="py-24 bg-gradient-to-br from-olive-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h3 class="font-playfair text-5xl font-bold text-olive-800 mb-6">Exclusive Collections</h3>
+                <p class="text-olive-600 text-xl">Limited edition pieces crafted for the discerning woman</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-xl">
+                    <div class="h-96 bg-gradient-to-br from-rose-200 via-pink-100 to-rose-300 flex items-center justify-center relative">
+                        <div class="text-9xl">💎</div>
+                        <div class="absolute top-6 left-6 bg-olive-800 text-white px-4 py-2 rounded-full text-sm font-semibold">Premium</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-playfair text-3xl font-semibold mb-4 text-olive-800">Luxury Line</h4>
+                        <p class="text-olive-600 mb-6 text-lg leading-relaxed">Handcrafted pieces using the finest materials and traditional techniques</p>
+                        <button class="bg-olive-700 text-white px-8 py-3 rounded-full hover:bg-olive-800 transition-colors font-semibold">Explore Luxury</button>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-xl">
+                    <div class="h-96 bg-gradient-to-br from-green-200 via-emerald-100 to-green-300 flex items-center justify-center relative">
+                        <div class="text-9xl">🌿</div>
+                        <div class="absolute top-6 left-6 bg-olive-800 text-white px-4 py-2 rounded-full text-sm font-semibold">Eco-Friendly</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-playfair text-3xl font-semibold mb-4 text-olive-800">Sustainable Style</h4>
+                        <p class="text-olive-600 mb-6 text-lg leading-relaxed">Environmentally conscious fashion that doesn't compromise on style or quality</p>
+                        <button class="bg-olive-700 text-white px-8 py-3 rounded-full hover:bg-olive-800 transition-colors font-semibold">Shop Sustainable</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two-Part Section: Left Details, Right Image -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Side - Details -->
+                <div class="space-y-8">
+                    <h3 class="font-playfair text-5xl font-bold text-olive-800 leading-tight">
+                        Crafted with Love,
+                        <span class="text-olive-600">Designed for You</span>
+                    </h3>
+                    <p class="text-xl text-olive-600 leading-relaxed">
+                        At Chic, we believe every woman deserves to feel confident, beautiful, and authentically herself. Our collections are thoughtfully designed to celebrate your unique style and empower your everyday moments.
+                    </p>
+                    <p class="text-lg text-olive-600 leading-relaxed">
+                        From luxurious fabrics sourced from the finest mills to impeccable craftsmanship that ensures lasting quality, every piece tells a story of dedication to excellence. We're not just creating clothes; we're crafting confidence.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 py-8">
+                        <div class="text-center p-6 bg-olive-50 rounded-2xl">
+                            <div class="text-4xl font-bold text-olive-800 mb-2">15K+</div>
+                            <div class="text-olive-600 font-medium">Happy Customers</div>
+                        </div>
+                        <div class="text-center p-6 bg-olive-50 rounded-2xl">
+                            <div class="text-4xl font-bold text-olive-800 mb-2">500+</div>
+                            <div class="text-olive-600 font-medium">Unique Designs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-olive-700 text-white px-8 py-4 rounded-full font-semibold hover:bg-olive-800 transition-colors">
+                            Our Story
+                        </button>
+                        <button class="border-2 border-olive-700 text-olive-700 px-8 py-4 rounded-full font-semibold hover:bg-olive-700 hover:text-white transition-colors">
+                            Meet the Team
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Side - Image -->
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-olive-100 via-olive-50 to-white rounded-3xl p-16 h-[600px] flex items-center justify-center relative overflow-hidden">
+                        <div class="text-center z-10">
+                            <div class="text-9xl mb-6">✨</div>
+                            <h4 class="font-playfair text-3xl font-semibold text-olive-800 mb-4">Premium Quality</h4>
+                            <p class="text-olive-600 text-lg max-w-sm">Handpicked materials and expert craftsmanship in every piece</p>
+                        </div>
+                        
+                        <!-- Decorative elements -->
+                        <div class="absolute -top-8 -right-8 w-32 h-32 bg-olive-200 rounded-full opacity-60"></div>
+                        <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-olive-300 rounded-full opacity-70"></div>
+                        <div class="absolute top-1/4 right-8 w-6 h-6 bg-olive-400 rounded-full opacity-80"></div>
+                        <div class="absolute bottom-1/4 left-8 w-4 h-4 bg-olive-500 rounded-full opacity-90"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Area -->
+    <section class="py-24 offer-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-playfair text-5xl md:text-6xl font-bold mb-6">
+                Special Offer
+            </h3>
+            <p class="text-2xl mb-8 opacity-90">
+                Get 30% off on your first purchase + Free shipping worldwide
+            </p>
+            <p class="text-xl mb-12 opacity-80 max-w-2xl mx-auto">
+                Join thousands of satisfied customers and discover why Chic is the preferred choice for sophisticated women's fashion
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+                <div class="bg-white/20 backdrop-blur-sm px-8 py-4 rounded-full">
+                    <span class="text-2xl font-bold">Code: WELCOME30</span>
+                </div>
+                <div class="text-lg">
+                    ⏰ Limited time offer - Ends in 7 days
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-olive-800 px-10 py-4 text-lg font-bold rounded-full hover:bg-olive-50 transition-colors transform hover:scale-105">
+                    Shop Now & Save
+                </button>
+                <button class="border-2 border-white text-white px-10 py-4 text-lg font-bold rounded-full hover:bg-white hover:text-olive-800 transition-colors">
+                    View All Offers
+                </button>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-10 left-10 w-20 h-20 border-2 border-white/30 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-16 h-16 border-2 border-white/20 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-olive-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-playfair text-4xl font-bold text-olive-800 mb-6">Stay Chic & Informed</h3>
+            <p class="text-olive-600 text-xl mb-10 max-w-2xl mx-auto">
+                Subscribe to our newsletter for exclusive access to new collections, styling tips, and special offers
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    class="flex-1 px-6 py-4 rounded-full text-olive-800 focus:outline-none focus:ring-4 focus:ring-olive-200 border border-olive-200"
+                >
+                <button class="bg-olive-700 text-white px-8 py-4 rounded-full font-semibold hover:bg-olive-800 transition-colors whitespace-nowrap">
+                    Subscribe Now
+                </button>
+            </div>
+            <p class="text-olive-500 text-sm mt-4">
+                Join 25,000+ fashion lovers. Unsubscribe anytime.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-olive-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-playfair text-3xl font-bold mb-2">Chic</h4>
+                        <p class="text-olive-200 text-sm">Premium Fashion</p>
+                    </div>
+                    <p class="text-olive-200 leading-relaxed">
+                        Timeless fashion for the modern woman. Discover your unique style with our curated collections of premium clothing and accessories.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="bg-olive-700 hover:bg-olive-600 p-3 rounded-full transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </button>
+                        <button class="bg-olive-700 hover:bg-olive-600 p-3 rounded-full transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </button>
+                        <button class="bg-olive-700 hover:bg-olive-600 p-3 rounded-full transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="font-semibold text-lg mb-6 text-white">Quick Links</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">Best Sellers</a></li>
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">Sale Items</a></li>
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">Gift Cards</a></li>
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">Lookbook</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h5 class="font-semibold text-lg mb-6 text-white">Customer Care</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">Returns & Exchanges</a></li>
+                        <li><a href="#" class="text-olive-200 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="font-semibold text-lg mb-6 text-white">Get in Touch</h5>
+                    <div class="space-y-4 text-olive-200">
+                        <div class="flex items-center space-x-3">
+                            <span>📧</span>
+                            <span>hello@chic.com</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span>📞</span>
+                            <span>+1 (555) 123-CHIC</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span>📍</span>
+                            <span>123 Fashion Ave<br>Style City, SC 12345</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span>🕒</span>
+                            <span>Mon-Fri: 9AM-8PM<br>Sat-Sun: 10AM-6PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-olive-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-olive-200">
+                <p>&copy; 2024 Chic Premium Fashion. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuButton = event.target.closest('button');
+            
+            if (!menu.contains(event.target) && !menuButton) {
+                menu.classList.remove('open');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.remove('open');
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.card-hover, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97192b9436b616dc',t:'MTc1NTYwMTQ2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
